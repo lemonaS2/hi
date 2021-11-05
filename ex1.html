@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <script>
+      $(function(){
+        var baseFontSize = 14;
+        $(".zoomBtnZone button").on("click", zoomInOut);
+        function zoomInOut(){
+            if($(this).hasClass("zoomOutBtn")){
+                if(baseFontSize<=8) return false;
+                baseFontSize--; 
+            }else if($(this).hasClass("zoomInBtn")){
+                if(baseFontSize>=20) return false;
+                baseFontSize++;
+            }else{
+                baseFontSize = 14;
+            }
+            $(".fontSize").text(baseFontSize + "px");
+            $("body").css({fontSize:baseFontSize + "px"});
+             }
+
+            $("#btn").click(function(){
+                alert("click!");
+            });
+
+            $("#box").slideUp(2000, "linear", function(){
+                alert("hi");
+            });
+      });
+  </script>
+</head>
+<body>
+    <p class="zoomBtnZoom">
+        <button class="zoomOutBtn">-</button>
+        <button class="originBtn">100%</button>
+        <button class="zoomInBtn">+</button>
+    </p>
+    <p class="fontSize">14px</p>
+    <div id="wrap">
+        Losadj dsjkalkdjuie hdajkshdjkas wqhejkqwhejk sadhkasjh aksdd..
+        ..
+    </div>
+    <button id="btn">버튼</button>
+    <p id="box">ㅎㅎㅎㅎㅎㅎㅎㅎ</p>
+</body>
+</html>
